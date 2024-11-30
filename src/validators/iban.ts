@@ -1,3 +1,5 @@
+import { clean, mod97 } from "../utils";
+
 export default function iban(input: string): boolean {
-  return true;
+  return mod97(clean(input)) === 1;
 }

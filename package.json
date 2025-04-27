@@ -1,12 +1,19 @@
 {
-  "name": "test",
+  "name": "@rivo-gg/iban",
   "version": "1.0.0",
   "description": "",
   "main": "dist/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "MIT"
+  "author": "Rivo",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.2",
+    "ts-node": "^10.9.2"
+  },
+  "packageManager": "pnpm@9.15.1"
 }

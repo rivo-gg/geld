@@ -1,32 +1,27 @@
-name: Code check
+name: Test
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches: ["main"]
   push:
-    branches: ["main"]
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  init: 
+  test:
     runs-on: ubuntu-latest
-    name: init pnpm
     steps:
-      - uses: actions/checkout@v3
-      - name: Install pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-  lint:
-    runs-on: ubuntu-latest
-    name: lint files
-    steps:
-      - uses: actions/checkout@v3
-      - run: pnpm lint
-
-  format:
-    runs-on: ubuntu-latest
-    name: format files
-    steps:
-      - uses: actions/checkout@v3
-      - run: pnpm format
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "22.x"
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+      - name: Run format check
+        run: pnpm format --check
+      - name: Run lint
+        run: pnpm run lint

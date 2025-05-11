@@ -1,5 +1,5 @@
 {
-  "name": "iban",
+  "name": "geld",
   "private": true,
   "scripts": {
     "build": "turbo run build",

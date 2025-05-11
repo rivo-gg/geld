@@ -1,0 +1,22 @@
+name: Code check
+
+on:
+  pull_request:
+    branches: ["*"]
+  push:
+    branches: ["*"]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: lint files
+    steps:
+      - uses: actions/checkout@v3
+      - run: pnpm lint
+
+  format:
+    runs-on: ubuntu-latest
+    name: format files
+    steps:
+      - uses: actions/checkout@v3
+      - run: pnpm format

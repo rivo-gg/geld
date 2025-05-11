@@ -1,5 +1,5 @@
 {
-  "name": "@repo/iban",
+  "name": "@geld/iban",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
@@ -16,7 +16,7 @@
     }
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@geld/tsconfig": "workspace:*",
     "typescript": "latest"
   }
 }

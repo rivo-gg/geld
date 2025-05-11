@@ -1,0 +1,32 @@
+name: Code check
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+jobs:
+  init: 
+    runs-on: ubuntu-latest
+    name: init pnpm
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+  lint:
+    runs-on: ubuntu-latest
+    name: lint files
+    steps:
+      - uses: actions/checkout@v3
+      - run: pnpm lint
+
+  format:
+    runs-on: ubuntu-latest
+    name: format files
+    steps:
+      - uses: actions/checkout@v3
+      - run: pnpm format

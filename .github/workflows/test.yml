@@ -1,0 +1,30 @@
+name: Test
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  init: 
+    runs-on: ubuntu-latest
+    name: init pnpm
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+  test:
+    runs-on: ubuntu-latest
+    name: pnpm test
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - run: pnpm test

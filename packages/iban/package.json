@@ -1,0 +1,22 @@
+{
+  "name": "@geld/iban",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./add": {
+      "types": "./src/add.ts",
+      "default": "./dist/add.js"
+    },
+    "./subtract": {
+      "types": "./src/subtract.ts",
+      "default": "./dist/subtract.js"
+    }
+  },
+  "devDependencies": {
+    "@geld/tsconfig": "workspace:*",
+    "typescript": "latest"
+  }
+}

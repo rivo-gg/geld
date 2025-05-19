@@ -1,5 +1,5 @@
 {
-  "extends": "@geld/tsconfig/base.json",
+  "extends": "@rivo-gg/tsconfig/base.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src"

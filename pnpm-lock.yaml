@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@rivo-gg/tsconfig':
+        specifier: workspace:*
+        version: link:packages/tsconfig
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -39,10 +42,10 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
     devDependencies:
-      '@geld/eslint-config':
+      '@rivo-gg/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@geld/tsconfig':
+      '@rivo-gg/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@tailwindcss/postcss':
@@ -106,9 +109,9 @@ importers:
         specifier: ^8.31.0
         version: 8.31.0(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.2)
 
-  packages/iban:
+  packages/geld:
     devDependencies:
-      '@geld/tsconfig':
+      '@rivo-gg/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       typescript:

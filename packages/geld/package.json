@@ -2,7 +2,13 @@
   "name": "@rivo-gg/geld",
   "type": "module",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.45",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc"

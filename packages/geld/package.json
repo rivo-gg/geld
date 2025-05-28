@@ -3,7 +3,7 @@
   "type": "module",
   "license": "MIT",
   "private": false,
-  "version": "0.0.46",
+  "version": "0.0.47",
   "description": "A comprehensive TypeScript/JavaScript library for financial operations and validations.",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -28,6 +28,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/rivo-gg/geld.git"
+  },
+  "homepage": "https://rivo.gg/projects/geld",
+  "funding": {
+
+    "type": "github",
+
+    "url": "https://github.com/sponsors/rivo-gg"
+
   },
   "scripts": {
     "dev": "tsc --watch",

@@ -2,7 +2,7 @@
 
 A comprehensive TypeScript/JavaScript library for financial operations and validations. Currently featuring IBAN (International Bank Account Number) validation and formatting, with more financial tools planned for future releases.
 
-> "Geld" means "money" in German, Dutch, and Afrikaans, reflecting the package's focus on financial tools.
+> "Geld" means "money" in German, Dutch, and Afrikaans, thats why we just that name for our financial tools.
 
 ## Installation
 

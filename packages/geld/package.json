@@ -1,14 +1,34 @@
 {
   "name": "@rivo-gg/geld",
   "type": "module",
+  "license": "MIT",
   "private": false,
-  "version": "0.0.45",
+  "version": "0.0.46",
+  "description": "A comprehensive TypeScript/JavaScript library for financial operations and validations.",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],
+  "keywords": [
+    "finance",
+    "banking",
+    "iban",
+    "validation",
+    "money",
+    "currency"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rivo-gg/geld.git"
+  },
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc"
@@ -16,5 +36,6 @@
   "devDependencies": {
     "@rivo-gg/tsconfig": "workspace:*",
     "typescript": "latest"
-  }
+  },
+  "sideEffects": false
 }

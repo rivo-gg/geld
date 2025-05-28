@@ -5,8 +5,8 @@
  */
 export default function mod97(input: string): number {
   const endString = input.substring(4) + input.substring(0, 4);
-  let final = '';
-  
+  let final = "";
+
   for (const char of endString) {
     if (/[0-9]/.test(char)) {
       final += char;
@@ -17,15 +17,15 @@ export default function mod97(input: string): number {
       }
     }
   }
-  
+
   // Process the number in chunks to avoid BigInt overflow
   const chunkSize = 8;
   let remainder = 0;
-  
+
   for (let i = 0; i < final.length; i += chunkSize) {
     const chunk = final.slice(i, i + chunkSize);
     remainder = (remainder * Math.pow(10, chunk.length) + parseInt(chunk)) % 97;
   }
-  
+
   return remainder;
 }

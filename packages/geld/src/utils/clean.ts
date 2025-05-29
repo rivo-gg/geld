@@ -4,5 +4,5 @@
  * @returns {string} The cleaned IBAN
  */
 export default function clean(iban: string): string {
-  return iban.replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
+  return iban.replace(/[^a-zA-Z0-9]/g, "").toUpperCase()
 }

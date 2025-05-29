@@ -1,0 +1,3 @@
+{
+  "extends": "@rivo-gg/tsconfig/base.json"
+}

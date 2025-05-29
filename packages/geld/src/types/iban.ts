@@ -1,5 +1,5 @@
 export interface IbanInfo {
-  country: string;
-  code: string;
-  length: number;
+  country: string
+  code: string
+  length: number
 }

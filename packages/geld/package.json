@@ -31,19 +31,20 @@
   },
   "homepage": "https://rivo.gg/projects/geld",
   "funding": {
-
     "type": "github",
-
     "url": "https://github.com/sponsors/rivo-gg"
-
   },
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@rivo-gg/tsconfig": "workspace:*",
-    "typescript": "latest"
+    "@vitest/coverage-v8": "^3.2.1",
+    "typescript": "latest",
+    "vitest": "^3.2.1"
   },
   "sideEffects": false
 }

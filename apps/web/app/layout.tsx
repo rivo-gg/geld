@@ -1,7 +1,6 @@
-import { Geist, Geist_Mono } from "next/font/google"
-
 import "@rivo-gg/ui/globals.css"
-import { Providers } from "@/components/providers"
+import { Geist, Geist_Mono } from "next/font/google"
+import { Providers } from "./providers"
 
 const fontSans = Geist({
   subsets: ["latin"],

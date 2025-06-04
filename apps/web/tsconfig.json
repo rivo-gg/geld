@@ -1,6 +1,7 @@
 {
   "extends": "@rivo-gg/tsconfig/nextjs.json",
   "compilerOptions": {
+    "lib": ["dom", "esnext"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],

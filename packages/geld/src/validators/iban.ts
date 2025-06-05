@@ -1,4 +1,4 @@
-import { mod97, clean as cleanIban } from "../utils/index.js";
+import { clean as cleanIban, mod97 } from "../utils/index.js"
 
 /**
  * Validates an IBAN using the MOD 97 algorithm.
@@ -8,7 +8,7 @@ import { mod97, clean as cleanIban } from "../utils/index.js";
  */
 export default function validate(input: string, clean = false): boolean {
   if (clean) {
-    return mod97(cleanIban(input)) === 1;
+    return mod97(cleanIban(input)) === 1
   }
-  return mod97(input) === 1;
+  return mod97(input) === 1
 }

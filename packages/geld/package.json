@@ -14,17 +14,8 @@
       "import": "./dist/index.js"
     }
   },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "finance",
-    "banking",
-    "iban",
-    "validation",
-    "money",
-    "currency"
-  ],
+  "files": ["dist"],
+  "keywords": ["finance", "banking", "iban", "validation", "money", "currency"],
   "repository": {
     "type": "git",
     "url": "https://github.com/rivo-gg/geld.git"

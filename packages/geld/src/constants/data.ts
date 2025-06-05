@@ -3,7 +3,7 @@
  * may change, so verify before using in financial applications. Rivo is not
  * responsible for any financial losses incurred by using this data.
  */
-import type { IbanInfo } from "../types/iban";
+import type { IbanInfo } from "../types/iban"
 
 export const ibanData: IbanInfo[] = [
   { country: "Albania", code: "AL", length: 28 },
@@ -85,5 +85,5 @@ export const ibanData: IbanInfo[] = [
   { country: "United Arab Emirates", code: "AE", length: 23 },
   { country: "United Kingdom", code: "GB", length: 22 },
   { country: "Virgin Islands (UK)", code: "VG", length: 24 },
-  { country: "Yemen", code: "YE", length: 30 },
-];
+  { country: "Yemen", code: "YE", length: 30 }
+]

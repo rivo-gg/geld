@@ -2,3 +2,6 @@
 node_modules
 tsconfig.json
 src/
+test/
+coverage/
+vitest.config.ts

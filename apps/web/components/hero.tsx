@@ -1,17 +1,40 @@
 "use client"
 
 import { fadeInUp } from "@/data/animations"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from "@rivo-gg/ui/components/dropdown-menu"
 import { Copy } from "lucide-react"
 import { motion } from "motion/react"
 import { toast } from "sonner"
 import { CodeBlock } from "./codeblock"
 
+const commands = [
+  {
+    name: "bun",
+    command: "bun add @rivo-gg/geld"
+  },
+  {
+    name: "npm",
+    command: "npm install @rivo-gg/geld"
+  },
+  {
+    name: "pnpm",
+    command: "pnpm add @rivo-gg/geld"
+  },
+  {
+    name: "yarn",
+    command: "yarn add @rivo-gg/geld"
+  }
+]
+
 export function Hero() {
-  const handleCopy = () => {
-    navigator.clipboard.writeText("bun add @rivo-gg/geld")
-    toast.success("Command copied to clipboard", {
-      description: "You can now paste it in your terminal."
-    })
+  const handleCopy = (str: string) => {
+    navigator.clipboard.writeText(str)
+    toast.success("Command copied to clipboard")
   }
 
   return (
@@ -51,10 +74,26 @@ export function Hero() {
             <div className="flex items-center gap-2 rounded-lg border border-foreground/10 bg-background/50 px-3 py-2">
               <span className="text-primary/70">$</span>
               <code className="text-foreground/70">bun add @rivo-gg/geld</code>
-              <Copy
-                className="h-4 w-4 cursor-pointer text-foreground/50 transition-colors hover:text-foreground"
-                onClick={handleCopy}
-              />
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className="text-foreground/50 hover:text-foreground"
+                  asChild
+                >
+                  <Copy className="h-4 w-4 cursor-pointer text-foreground/50 transition-colors hover:text-foreground" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {commands.map((cmd) => (
+                    <DropdownMenuItem
+                      key={cmd.name}
+                      onSelect={() => {
+                        handleCopy(cmd.command)
+                      }}
+                    >
+                      {cmd.name}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
             {/* <div className="flex items-center gap-1">
               <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />

@@ -2,7 +2,7 @@
   "extends": "@rivo-gg/tsconfig/base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "moduleResolution": "node"
+    "moduleResolution": "NodeNext"
   },
   "include": ["src", "index.ts"],
   "exclude": ["node_modules", "dist"]

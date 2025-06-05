@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@rivo-gg/geld": "^0.0.48",
     "@rivo-gg/ui": "workspace:*",
     "hast-util-to-jsx-runtime": "^2.3.6",
     "lucide-react": "^0.475.0",

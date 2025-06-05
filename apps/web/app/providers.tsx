@@ -11,7 +11,10 @@ export function Providers({ children }: { children: ReactNode }) {
       disableTransitionOnChange
     >
       {children}
-      <Toaster closeButton />
+      <Toaster
+        closeButton
+        richColors
+      />
     </ThemeProvider>
   )
 }

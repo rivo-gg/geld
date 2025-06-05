@@ -2,37 +2,26 @@
 
 import { scaleIn } from "@/data/animations"
 import { codeExample } from "@/lib/code-example"
-import theme from "@/lib/custom-theme"
+import { highlighter } from "@/lib/highlighter"
 import { Card, CardContent } from "@rivo-gg/ui/components/card"
 import { Copy } from "lucide-react"
 import { motion } from "motion/react"
 import { useCallback, useEffect, useState } from "react"
-import { createHighlighter } from "shiki"
 import { toast } from "sonner"
 import { IbanInput } from "./iban-input"
 
-const h = await createHighlighter({
-  themes: [theme],
-  langs: ["typescript"]
-})
-
-const tokensServer = h.codeToTokens(codeExample, {
-  lang: "typescript",
-  theme: "rivo-gg-geld-dark"
-})
-
 export function CodeBlock() {
-  const [tokens, setTokens] = useState<
-    Array<Array<{ content: string; color?: string | undefined }>>
-  >(tokensServer.tokens)
-
   const tokenizer = useCallback((str: string) => {
-    const tokensResult = h.codeToTokens(str, {
+    const tokensResult = highlighter.codeToTokens(str, {
       lang: "typescript",
-      theme: "rivo-gg-geld-dark"
+      theme: "catppuccin-frappe"
     })
     return tokensResult.tokens
   }, [])
+
+  const [tokens, setTokens] = useState<
+    Array<Array<{ content: string; color?: string | undefined }>>
+  >(tokenizer(codeExample))
 
   useEffect(() => {
     setTokens(tokenizer(codeExample))

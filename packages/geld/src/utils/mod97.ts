@@ -1,3 +1,5 @@
+import { DIGIT_REGEX } from "../constants/validate.js"
+
 /**
  * Calculates the MOD 97 checksum for an IBAN.
  * @param input The IBAN to validate
@@ -8,7 +10,7 @@ export default function mod97(input: string): number {
   let final = ""
 
   for (const char of endString) {
-    if (/[0-9]/.test(char)) {
+    if (DIGIT_REGEX.test(char)) {
       final += char
     } else {
       const charValue = char.toLowerCase().charCodeAt(0) - 97 + 10

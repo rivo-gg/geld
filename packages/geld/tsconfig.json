@@ -2,7 +2,9 @@
   "extends": "@rivo-gg/tsconfig/base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "NodeNext",
+    "noUncheckedIndexedAccess": null,
+    "noEmit": true
   },
   "include": ["src", "index.ts"],
   "exclude": ["node_modules", "dist", "test", "coverage", "vitest.config.ts"]

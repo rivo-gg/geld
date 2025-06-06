@@ -32,8 +32,10 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      
       "style": {
-        "useBlockStatements": "info"
+        "useBlockStatements": "info",
+        "useExponentiationOperator": "info"
       },
       "nursery": {
         "noEnum": "off"

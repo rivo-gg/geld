@@ -1,5 +1,5 @@
-import { EVERY_FOUR_CHARS } from "../constants/format"
-import clean from "./clean"
+import { EVERY_FOUR_CHARS } from "../constants/format.js"
+import clean from "./clean.js"
 
 /**
  * Formats an IBAN for printing with optional separator

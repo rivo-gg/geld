@@ -9,27 +9,26 @@ import {
   DropdownMenuTrigger
 } from "@rivo-gg/ui/components/dropdown-menu"
 import { Copy } from "lucide-react"
-import { AnimatePresence, motion } from "motion/react"
-import { useEffect, useState } from "react"
+import { motion } from "motion/react"
 import { toast } from "sonner"
 import { CodeBlock } from "./codeblock"
 
 const commands = [
   {
-    name: "bun",
-    command: "bun add @rivo-gg/geld"
+    name: "pnpm",
+    command: "pnpm add @rivo-gg/geld"
   },
   {
     name: "npm",
     command: "npm i @rivo-gg/geld"
   },
   {
-    name: "pnpm",
-    command: "pnpm add @rivo-gg/geld"
-  },
-  {
     name: "yarn",
     command: "yarn add @rivo-gg/geld"
+  },
+  {
+    name: "bun",
+    command: "bun add @rivo-gg/geld"
   }
 ]
 
@@ -41,28 +40,20 @@ const animationVariants = {
 }
 
 export function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const selectedCommand = commands[currentIndex]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((i) => (i + 1) % commands.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
-  const handleCopy = (str: string) => {
-    navigator.clipboard.writeText(str)
-    toast.success("Command copied to clipboard")
+  const handleCopy = (cmd: { name: string; command: string }) => {
+    navigator.clipboard.writeText(cmd.command)
+    toast.success(`Copied ${cmd.name} command to clipboard`)
   }
 
-  const command = highlighter.codeToHtml(selectedCommand?.command ?? "", {
-    lang: "bash",
-    theme: "catppuccin-frappe",
-    colorReplacements: {
-      "#303446": "#0000"
-    }
-  })
+  const command = commands[0]
+    ? highlighter.codeToHtml(commands[0].command, {
+        lang: "bash",
+        theme: "catppuccin-frappe",
+        colorReplacements: {
+          "#303446": "#0000"
+        }
+      })
+    : ""
 
   return (
     <section className="container relative z-10 mx-auto flex flex-1 items-center px-4">
@@ -101,19 +92,10 @@ export function Hero() {
             <div className="flex items-center gap-2 rounded-lg border border-foreground/10 bg-background/50 px-3 py-2">
               <span className="text-primary/70">$</span>
 
-              <AnimatePresence mode="wait">
-                <motion.code
-                  key={`${selectedCommand?.name ?? "unknown"}-${Math.random()}`}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  variants={animationVariants}
-                  transition={animationVariants.transition}
-                  className="min-w-42 text-foreground/70"
-                  // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-                  dangerouslySetInnerHTML={{ __html: command }}
-                />
-              </AnimatePresence>
+              <code
+                className="min-w-42 text-foreground/70"
+                dangerouslySetInnerHTML={{ __html: command }}
+              />
 
               <DropdownMenu>
                 <DropdownMenuTrigger
@@ -126,7 +108,7 @@ export function Hero() {
                   {commands.map((cmd) => (
                     <DropdownMenuItem
                       key={cmd.name}
-                      onSelect={() => handleCopy(cmd.command)}
+                      onSelect={() => handleCopy(cmd)}
                     >
                       {cmd.name}
                     </DropdownMenuItem>

@@ -32,13 +32,6 @@ const commands = [
   }
 ]
 
-const animationVariants = {
-  initial: { opacity: 0, y: -10 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: 10 },
-  transition: { duration: 0.3, ease: "easeInOut" }
-}
-
 export function Hero() {
   const handleCopy = (cmd: { name: string; command: string }) => {
     navigator.clipboard.writeText(cmd.command)
@@ -94,6 +87,7 @@ export function Hero() {
 
               <code
                 className="min-w-42 text-foreground/70"
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: <needs to be>
                 dangerouslySetInnerHTML={{ __html: command }}
               />
 

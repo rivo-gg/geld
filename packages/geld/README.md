@@ -2,6 +2,8 @@
 
 A comprehensive TypeScript/JavaScript library for financial operations and validations. Currently featuring IBAN (International Bank Account Number) validation and formatting, with more financial tools planned for future releases.
 
+[![Coverage](https://img.shields.io/badge/coverage-100%25-green.svg)](https://github.com/rivo-gg/geld)
+
 > 'Geld' means 'money' in German, Dutch and Afrikaans. That's why we chose that name for our financial tools.
 
 ## Installation

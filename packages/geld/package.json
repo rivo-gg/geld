@@ -28,8 +28,8 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "test": "vitest run --dir packages/geld",
+    "coverage": "vitest run --dir packages/geld --coverage"
   },
   "devDependencies": {
     "@rivo-gg/tsconfig": "workspace:*",

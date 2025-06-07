@@ -40,7 +40,7 @@ RUN adduser --system --uid 1001 nextjs
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
-COPY --from=builder --chown=nextjs:nodejs /repo/apps/web/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /repo/apps/web/.next/standalone/apps/web/ ./
 COPY --from=builder --chown=nextjs:nodejs /repo/apps/web/.next/static ./.next/static
 
 USER nextjs

@@ -1,18 +1,52 @@
 "use client"
 
 import { fadeInUp } from "@/data/animations"
+import { highlighter } from "@/lib/highlighter"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from "@rivo-gg/ui/components/dropdown-menu"
 import { Copy } from "lucide-react"
 import { motion } from "motion/react"
 import { toast } from "sonner"
 import { CodeBlock } from "./codeblock"
 
-export function Hero() {
-  const handleCopy = () => {
-    navigator.clipboard.writeText("bun add @rivo-gg/geld")
-    toast.success("Command copied to clipboard", {
-      description: "You can now paste it in your terminal."
-    })
+const commands = [
+  {
+    name: "pnpm",
+    command: "pnpm add @rivo-gg/geld"
+  },
+  {
+    name: "npm",
+    command: "npm i @rivo-gg/geld"
+  },
+  {
+    name: "yarn",
+    command: "yarn add @rivo-gg/geld"
+  },
+  {
+    name: "bun",
+    command: "bun add @rivo-gg/geld"
   }
+]
+
+export function Hero() {
+  const handleCopy = (cmd: { name: string; command: string }) => {
+    navigator.clipboard.writeText(cmd.command)
+    toast.success(`Copied ${cmd.name} command to clipboard`)
+  }
+
+  const command = commands[0]
+    ? highlighter.codeToHtml(commands[0].command, {
+        lang: "bash",
+        theme: "catppuccin-frappe",
+        colorReplacements: {
+          "#303446": "#0000"
+        }
+      })
+    : ""
 
   return (
     <section className="container relative z-10 mx-auto flex flex-1 items-center px-4">
@@ -50,19 +84,32 @@ export function Hero() {
           >
             <div className="flex items-center gap-2 rounded-lg border border-foreground/10 bg-background/50 px-3 py-2">
               <span className="text-primary/70">$</span>
-              <code className="text-foreground/70">bun add @rivo-gg/geld</code>
-              <Copy
-                className="h-4 w-4 cursor-pointer text-foreground/50 transition-colors hover:text-foreground"
-                onClick={handleCopy}
+
+              <code
+                className="min-w-42 text-foreground/70"
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: <needs to be>
+                dangerouslySetInnerHTML={{ __html: command }}
               />
+
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className="text-foreground/50 hover:text-foreground"
+                  asChild
+                >
+                  <Copy className="h-4 w-4 cursor-pointer text-foreground/50 transition-colors hover:text-foreground" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {commands.map((cmd) => (
+                    <DropdownMenuItem
+                      key={cmd.name}
+                      onSelect={() => handleCopy(cmd)}
+                    >
+                      {cmd.name}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
-            {/* <div className="flex items-center gap-1">
-              <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-              <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-              <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-              <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-              <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-            </div> */}
           </motion.div>
         </motion.div>
 

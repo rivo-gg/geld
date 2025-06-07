@@ -1,19 +1,13 @@
-import { toJsxRuntime } from "hast-util-to-jsx-runtime"
-import type { JSX } from "react"
-import { Fragment } from "react"
-import { jsx, jsxs } from "react/jsx-runtime"
-import type { BundledLanguage } from "shiki/bundle/web"
-import { codeToHast } from "shiki/bundle/web"
+import { createHighlighter } from "shiki"
 
-export async function highlight(code: string, lang: BundledLanguage) {
-  const out = await codeToHast(code, {
-    lang,
-    theme: "none"
-  })
+let highlighterPromise: Promise<any> | null = null;
 
-  return toJsxRuntime(out, {
-    Fragment,
-    jsx,
-    jsxs
-  }) as JSX.Element
+export async function getHighlighter() {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: ["catppuccin-frappe"],
+      langs: ["typescript", "bash", "shellscript", "json", "javascript", "python"]
+    });
+  }
+  return highlighterPromise;
 }

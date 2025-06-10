@@ -29,9 +29,9 @@ export function IbanInput() {
   }, [value])
 
   return (
-    <div className="relative flex w-96 flex-col items-center gap-6">
+    <div className="relative flex w-52 flex-col items-center gap-6 md:w-96">
       <Input
-        className="!bg-input h-12 w-full rounded-xl border border-foreground/20"
+        className="!bg-input h-10 w-full rounded-xl border border-foreground/20 md:h-12"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Insert an IBAN"
@@ -51,7 +51,7 @@ export function IbanInput() {
 
       <Button
         onClick={() => submit(value)}
-        className="!size-8 absolute top-2 right-2"
+        className="absolute top-1.5 right-1.5 !md:size-8 size-7 md:top-2 md:right-2"
       >
         <Send className="size-4" />
       </Button>

@@ -42,7 +42,7 @@ export function CodeBlock() {
       viewport={{ once: true, margin: "-100px" }}
       variants={scaleIn}
     >
-      <Card className="w-full gap-0 overflow-hidden border-input bg-background/40 py-0 backdrop-blur-sm">
+      <Card className="mx-auto w-full max-w-82 gap-0 overflow-hidden border-input bg-background/40 py-0 backdrop-blur-sm md:mx-0 md:max-w-full">
         <div className="flex items-center justify-between border-input border-b bg-input/45 px-4 py-2">
           <div className="flex items-center gap-2">
             <div className="h-3 w-3 rounded-full bg-red-500" />
@@ -61,17 +61,17 @@ export function CodeBlock() {
 
         <CardContent className="relative flex flex-col p-0">
           <motion.div
-            className="relative flex min-h-[24px] items-start"
+            className="relative flex min-h-5 items-start md:min-h-[24px]"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <pre className="w-full overflow-x-auto p-6 font-mono text-sm">
+            <pre className="w-full overflow-x-auto p-6 font-mono text-xs">
               <code className="w-full">
                 {tokens.map((line, i) => (
                   <motion.div
                     key={`${i}-${line.map((t) => t.content).join("")}`}
-                    className="flex min-h-[24px] w-full items-start"
+                    className="flex min-h-5 w-full items-start md:min-h-[24px]"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.03, duration: 0.3 }}
@@ -79,7 +79,7 @@ export function CodeBlock() {
                     <span className="mr-4 w-8 flex-shrink-0 select-none text-right text-gray-600">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="flex-1 leading-5">
+                    <span className="flex-1">
                       {line.map((token, idx) => (
                         <span
                           key={idx}

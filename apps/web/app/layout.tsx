@@ -1,25 +1,34 @@
-import "@rivo-gg/ui/globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Providers } from "./providers";
-import Script from "next/script";
+import "@rivo-gg/ui/globals.css"
+import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
+import Script from "next/script"
+import type { ReactNode } from "react"
+import { Providers } from "./providers"
 
 const fontSans = Geist({
   subsets: ["latin"],
-  variable: "--font-sans",
-});
+  variable: "--font-sans"
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
-});
+  variable: "--font-mono"
+})
+
+export const metadata: Metadata = {
+  title: "Geld - Comprehensive Financial Library for TypeScript"
+}
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
       <Script
         src="https://app.databuddy.cc/databuddy.js"
         data-client-id="jQxt6I1OAJDjh77256UCz"
@@ -36,5 +45,5 @@ export default function RootLayout({
         <Providers>{children}</Providers>
       </body>
     </html>
-  );
+  )
 }

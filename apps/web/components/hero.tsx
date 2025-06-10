@@ -10,6 +10,7 @@ import {
 } from "@rivo-gg/ui/components/dropdown-menu"
 import { Copy } from "lucide-react"
 import { motion } from "motion/react"
+import { Balancer } from "react-wrap-balancer"
 import { toast } from "sonner"
 import { CodeBlock } from "./codeblock"
 
@@ -62,11 +63,13 @@ export function Hero() {
             className="mb-6 max-w-lg text-center font-bold text-4xl leading-tight md:text-6xl lg:text-start"
             variants={fadeInUp}
           >
-            The most comprehensive{" "}
-            <span className="bg-gradient-to-t from-purple-600 to-purple-400 bg-clip-text text-transparent">
-              financial library
-            </span>{" "}
-            for TypeScript.
+            <Balancer>
+              The most comprehensive{" "}
+              <span className="bg-gradient-to-t from-purple-600 to-purple-400 bg-clip-text text-transparent">
+                financial library
+              </span>{" "}
+              for TypeScript.
+            </Balancer>
           </motion.h1>
 
           <motion.p

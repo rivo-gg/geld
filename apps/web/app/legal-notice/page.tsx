@@ -24,7 +24,7 @@ export default function Page() {
             </li>
             <li>Phone: +49 151 23793107</li>
             <li className="text-yellow-200">
-              🛈 No acceptance of parcels or packages.
+              &#x1F6C8; No acceptance of parcels or packages.
             </li>
           </ul>
         </div>
